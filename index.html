@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <!-- Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <!-- Custom CSS for additional styling -->
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card" style="width: 100%;">
+                    <img src="designer.png" class="card-img-top" alt="Custom image"
+                        style="height: 310px; object-fit: cover;">
+                    <div class="card-body">
+                        <h2 class="card-title">Guess The Number Game</h2>
+
+
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <p class="mt-2">Playing for values from 1 to</p>
+                            <div class="input-group" style="max-width: 66px; margin-left: -35px;">
+                                <select class="form-select" id="range" aria-label="Select range">
+                                    <option value="3" selected>3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+
+                            <p class="mb-1 mt-1 ml-0" id="range-message">Guess a number between 1 and 3</p>
+                        </li>
+                        <li class="list-group-item">
+
+                            <span id="response">All the best!</span>
+                            <br>
+                            <div class="input-group mb-1 mt-2" style="max-width: 200px">
+                                <input type="number" class="form-control" placeholder="Your guess" step="1"
+                                    style="width: 130px;" id="guess-input" min="1">
+                                <button class="btn btn-outline-primary" type="button" id="enter-btn">Enter</button>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            Click the reset button to start over.
+                            <button type="button" class="btn btn-outline-danger btn-sm mt-1 mb-1"
+                                style="width: 60px; margin-left: 20px;" id="reset-btn">Reset</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Link to the JavaScript file -->
+    <script src="app.js"></script>
+</body>
+
+</html>

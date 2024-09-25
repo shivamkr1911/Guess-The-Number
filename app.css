@@ -1,0 +1,42 @@
+/* General body styling */
+body {
+    font-size: 1.2rem;
+    background-color: black;
+}
+
+/* Card styling for game container */
+.card {
+    background-color: black;
+    color: white;
+    border: 2px solid rgb(51, 101, 239);
+    border-radius: 0.25rem;
+    box-shadow: 0px 22px 70px 4px rgb(51, 101, 239);
+    /* Add shadow effect */
+}
+
+/* List group item styles inside the card */
+.list-group-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    /* Align items in a grid format */
+    align-items: center;
+    justify-content: start;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+/* Styling for the second list item, applying top and bottom borders */
+.list-group-item:nth-child(2) {
+    border-top: 2px solid rgb(51, 101, 239);
+    border-bottom: 2px solid rgb(51, 101, 239);
+}
+
+/* Correct and wrong guess text color */
+.correct-guess {
+    color: green;
+}
+
+.wrong-guess {
+    color: red;
+}
