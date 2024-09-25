@@ -12,19 +12,19 @@ let guess = ''; // Variable to store user's guess
 
 // Function to generate a random target number within the range
 function generateTarget(maxValue) {
-    return Math.floor(Math.random() * maxValue) + 1;
+    return Math.floor(Math.random() * maxValue) + 1; // Random number between 1 and maxValue
 }
 
 // Function to reset the game to the initial state
 function resetGame() {
-    target = generateTarget(parseInt(rangeInput.value)); // Generate a new target based on range
+    target = generateTarget(parseInt(rangeInput.value)); // Generate a new target based on selected range
     guessInput.value = ''; // Clear the guess input field
     guessInput.disabled = false; // Enable the input for a new guess
     enterbtn.disabled = false; // Enable the enter button
     response.classList.remove('correct-guess', 'wrong-guess'); // Reset guess feedback styles
     response.textContent = 'The game has been reset.'; // Reset response message
     setTimeout(function () {
-        response.textContent = 'All the best!' // Update response after a brief delay
+        response.textContent = 'All the best!'; // Update response after a brief delay
     }, 1000);
 }
 
@@ -43,20 +43,28 @@ function updateRangeMessage() {
 
 // Event listener for the 'Enter' button
 enterbtn.addEventListener('click', function () {
+    const rangeValue = parseInt(rangeInput.value); // Get the current range
+    const guessValue = Number(guessInput.value.trim()); // Parse the guess
     if (guessInput.value.trim() === '') { // If input is empty, show a prompt
-        response.textContent = 'Please make a guess first.'
+        response.textContent = 'Please make a guess first.';
         setTimeout(function () {
-            response.textContent = 'All the best!'
+            response.textContent = 'All the best!';
         }, 1000);
         return;
     }
-    guess = Number(guessInput.value); // Parse the user's guess to a number
+
+    if (guessValue < 1 || guessValue > rangeValue) {
+        alert(`Please enter a number between 1 and ${rangeValue}.`); // Show alert if out of range
+        return;
+    }
+
+    guess = guessValue
     if (target !== guess) { // Check if guess is incorrect
-        response.textContent = 'Wrong guess! Try again.'
+        response.textContent = 'Wrong guess! Try again.';
         response.classList.remove('correct-guess');
         response.classList.add('wrong-guess');
     } else { // If guess is correct
-        response.textContent = 'Congratulations! You guessed correctly.'
+        response.textContent = 'Congratulations! You guessed correctly.';
         response.classList.remove('wrong-guess');
         response.classList.add('correct-guess');
         guessInput.disabled = true; // Disable input after correct guess
@@ -74,6 +82,5 @@ rangeInput.addEventListener('change', function () {
     updateRangeMessage();
 });
 
-// Initialize the game with correct max values and message
-updateGuessInputMax();
-updateRangeMessage();
+updateGuessInputMax(); // Set initial max guess value
+updateRangeMessage(); // Set initial range message
