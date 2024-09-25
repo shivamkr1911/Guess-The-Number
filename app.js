@@ -65,6 +65,7 @@ enterbtn.addEventListener('click', function () {
         response.classList.add('wrong-guess');
     } else { // If guess is correct
         response.textContent = 'Congratulations! You guessed correctly.';
+        guessInput.value = '';
         response.classList.remove('wrong-guess');
         response.classList.add('correct-guess');
         guessInput.disabled = true; // Disable input after correct guess
