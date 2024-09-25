@@ -55,12 +55,14 @@ enterbtn.addEventListener('click', function () {
 
     if (guessValue < 1 || guessValue > rangeValue) {
         alert(`Please enter a number between 1 and ${rangeValue}.`); // Show alert if out of range
+        guessInput.value = '';
         return;
     }
 
     guess = guessValue
     if (target !== guess) { // Check if guess is incorrect
         response.textContent = 'Wrong guess! Try again.';
+        guessInput.value = '';
         response.classList.remove('correct-guess');
         response.classList.add('wrong-guess');
     } else { // If guess is correct
