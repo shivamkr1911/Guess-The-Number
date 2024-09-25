@@ -85,5 +85,12 @@ rangeInput.addEventListener('change', function () {
     updateRangeMessage();
 });
 
+// Event listener for the 'keydown' event on the guessInput element
+guessInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') { // Check if the Enter key is pressed
+        enterbtn.click(); // Simulate a click on the Enter button
+    }
+});
+
 updateGuessInputMax(); // Set initial max guess value
 updateRangeMessage(); // Set initial range message
